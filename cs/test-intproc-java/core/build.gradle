@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+}
+
+group 'com.usalko.test.intproc'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+jar {
+    manifest {
+        attributes(
+                "Implementation-Title" : project.name,
+                "Implementation-Version" : "1.0",
+                "Main-Class" : "com.usalko.test.intproc.IntProc",
+        )
+    }
+}
+
+dependencies {
+    compile project(':shared')
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+}
+

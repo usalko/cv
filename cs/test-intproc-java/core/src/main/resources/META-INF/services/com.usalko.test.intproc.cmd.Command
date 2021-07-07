@@ -1,0 +1,14 @@
+com.usalko.test.intproc.cmd.CmdAdd
+com.usalko.test.intproc.cmd.CmdClear
+com.usalko.test.intproc.cmd.CmdCount
+com.usalko.test.intproc.cmd.CmdDel
+com.usalko.test.intproc.cmd.CmdDelRange
+com.usalko.test.intproc.cmd.CmdExit
+com.usalko.test.intproc.cmd.CmdFind
+com.usalko.test.intproc.cmd.CmdGet
+com.usalko.test.intproc.cmd.CmdHelp
+com.usalko.test.intproc.cmd.CmdList
+com.usalko.test.intproc.cmd.CmdLoad
+com.usalko.test.intproc.cmd.CmdSave
+com.usalko.test.intproc.cmd.CmdSet
+com.usalko.test.intproc.cmd.CmdUnique

@@ -1,0 +1,17 @@
+plugins {
+    id 'java-library'
+}
+
+group 'com.usalko.test.intproc'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Use JUnit test framework
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}

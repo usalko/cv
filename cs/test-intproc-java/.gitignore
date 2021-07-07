@@ -1,0 +1,9 @@
+.idea
+.gradle
+# build folders
+build
+out
+# Exclude copied resources under test run
+tab-separated-values.txt
+tab-separated-values-tab-ended.txt
+save-test*.txt

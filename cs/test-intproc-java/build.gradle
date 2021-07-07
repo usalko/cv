@@ -1,0 +1,10 @@
+buildscript {
+
+    repositories {
+        jcenter()
+    }
+}
+
+group = 'com.usalko.test.intproc'
+version = '1.0-SNAPSHOT'
+
