@@ -1,0 +1,22 @@
+allprojects {
+
+    buildscript {
+        repositories {
+            mavenCentral()
+            maven {
+                url "https://plugins.gradle.org/m2/"
+            }
+	        mavenLocal()
+        }
+        dependencies {
+            classpath "com.usalko:gradle-usage-plugin:1.0-SNAPSHOT"
+        }
+
+    }
+
+    apply plugin: 'java'
+
+    afterEvaluate { project ->
+        project.apply plugin: 'com.usalko.gradle-usage-plugin'
+    }
+}
