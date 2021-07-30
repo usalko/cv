@@ -9,5 +9,5 @@ Show me the code, please
 |[cs/usage-maven-plugin](https://github.com/usalko/cv/tree/master/cs/usage-maven-plugin)| Maven plugin sample|Java|
 |[cs/gradle-usage-plugin](https://github.com/usalko/cv/tree/master/cs/gradle-usage-plugin)| Gradle plugin sample|Kotlin|
 |[cs/proposal_concurrent_futures_scheduled](https://github.com/usalko/cv/tree/master/cs/proposal_concurrent_futures_scheduled)| Python scheduled-thread-pool sample|Python|
-
+|[cs/java-volatile-vs-synchronized-vs-locks](https://github.com/usalko/cv/tree/master/cs/java-volatile-vs-synchronized-vs-locks)| Java synchronization primitives performance test|Java|
 
