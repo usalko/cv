@@ -1,4 +1,14 @@
 #!/bin/bash
 
+javac ArgsParser.java
+javac ThreadStatistic.java
 javac JavaVolatileVsSynchronizedVsLocks.java
-java  JavaVolatileVsSynchronizedVsLocks
+# Volatile
+echo Volatile
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=volatile-value
+# Synchronized
+echo Synchronized
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=synchronized-value
+# Locked
+echo Locked
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=locked-value
