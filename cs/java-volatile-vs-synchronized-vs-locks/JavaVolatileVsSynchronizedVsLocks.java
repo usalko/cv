@@ -78,8 +78,11 @@ class JavaVolatileVsSynchronizedVsLocks {
 	public static void main(String[] args) throws Throwable {
 
 		ArgsParser parseResults = new ArgsParser(args);
+		final boolean printHelpAndExit = parseResults.getBoolOption("Print help and exit", "h", false);
+		final boolean printTestParameters = parseResults.getBoolOption("Print test parameters", "print-test-parameters", false);
 		final int threadsCount = parseResults.getIntOption("Threads count", "threads-count", 2);
 		final int cyclesCount = parseResults.getIntOption("Cycles count", "cycles-count", 1_000_000);
+		final double readWriteRatio = parseResults.getDoubleOption("Read/Write ratio", "read-write-ratio", 0.5);
 		final Accessor accessor = parseResults.getTypeOption("Accessor type", "accessor-type", stringValue -> {
 			switch (stringValue.replaceAll("-", "").toUpperCase()) {
 				case "VOLATILEVALUE":
@@ -91,15 +94,20 @@ class JavaVolatileVsSynchronizedVsLocks {
 			}
 			throw new IllegalStateException(String.format("The value %s can't parse", stringValue));
 		});
-		parseResults.print();
+		if (printHelpAndExit) {
+			parseResults.help();
+			return;
+		}
+		if (printTestParameters) {
+			parseResults.print();
+		}
 
 		Map<Integer, ThreadStatistic> statistic = new HashMap<>(threadsCount) {
 			{
 				IntStream.range(0, threadsCount).forEach(i -> {
 					try {
 						put(i, new ThreadStatistic(Files.readAllBytes(Path.of("RandomNumbers" + (i + 1)))));
-					}
-					catch (Exception ex) {
+					} catch (Exception ex) {
 						throw new RuntimeException(ex);
 					}
 				});
@@ -110,8 +118,12 @@ class JavaVolatileVsSynchronizedVsLocks {
 			SecureRandom randomSequence = new SecureRandom(threadStatistic.seed);
 			int value = 0;
 
+			int bound = 1_000_000;
+			int writeBoundary = (int) Math.round(readWriteRatio * bound);
+
 			for (int i = 0; i < cyclesCount; i++) {
-				boolean isWrite = randomSequence.nextBoolean();
+
+				boolean isWrite = randomSequence.nextInt(bound) > writeBoundary;
 				threadStatistic.start();
 				if (isWrite) {
 					threadStatistic.startWrite();
@@ -129,7 +141,7 @@ class JavaVolatileVsSynchronizedVsLocks {
 		});
 		// Print results
 		IntStream.range(0, threadsCount).forEach(i -> {
-			System.out.println(statistic.get(i));
+			System.out.printf("> %s", statistic.get(i));
 		});
 	}
 }

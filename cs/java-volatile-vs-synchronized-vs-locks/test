@@ -5,10 +5,10 @@ javac ThreadStatistic.java
 javac JavaVolatileVsSynchronizedVsLocks.java
 # Volatile
 echo Volatile
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=volatile-value
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=volatile-value --read-write-ratio=0.25 $1
 # Synchronized
 echo Synchronized
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=synchronized-value
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=synchronized-value --read-write-ratio=0.25 $1
 # Locked
 echo Locked
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=locked-value
+java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=locked-value --read-write-ratio=0.25 $1
