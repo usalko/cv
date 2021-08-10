@@ -3,12 +3,14 @@
 javac ArgsParser.java
 javac ThreadStatistic.java
 javac JavaVolatileVsSynchronizedVsLocks.java
-# Volatile
-echo Volatile
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=volatile-value --read-write-ratio=0.25 $1
-# Synchronized
-echo Synchronized
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=synchronized-value --read-write-ratio=0.25 $1
-# Locked
-echo Locked
-java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=locked-value --read-write-ratio=0.25 $1
+for ratio in 0.25 0.5 0.75; do
+    # Volatile
+    echo Volatile, ratio is $ratio
+    java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=volatile-value --read-write-ratio=$ratio $1
+    # Synchronized
+    echo Synchronized, ratio is $ratio
+    java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=synchronized-value --read-write-ratio=$ratio $1
+    # Locked
+    echo Locked, ratio is $ratio
+    java  JavaVolatileVsSynchronizedVsLocks --threads-count=2 --cycles-count=1000000 --accessor-type=locked-value --read-write-ratio=$ratio $1
+done
