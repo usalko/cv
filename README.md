@@ -10,4 +10,4 @@ Show me the code, please
 |[cs/gradle-usage-plugin](https://github.com/usalko/cv/tree/master/cs/gradle-usage-plugin)| Gradle plugin sample|Kotlin|
 |[cs/proposal_concurrent_futures_scheduled](https://github.com/usalko/cv/tree/master/cs/proposal_concurrent_futures_scheduled)| Python scheduled-thread-pool sample|Python|
 
-
+[CV (English)](cv_en.pdf)
